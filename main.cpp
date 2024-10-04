@@ -93,42 +93,17 @@ int evaluate(std::string tmp){
     int a,b;
     
     for (int i=0; i<tmp.size(); i++){
+
             if (tmp[i] == 'p'){
                 tmp[i] = Operator;
             }
         
         
+            if (isdigit(tmp[i])) {
+            int num = tmp[i] - '0';
+            V.push_back(num);
+        } else {
             switch (tmp[i]) {
-                case '1':
-                    V.push_back(1);
-                    break;
-                case '2':
-                    V.push_back(2);
-                    break;
-                case '3':
-                    V.push_back(3);
-                    break;
-                case '4':
-                    V.push_back(4);
-                    break;
-                case '5':
-                    V.push_back(5);
-                    break;
-                case '6':
-                    V.push_back(6);
-                    break;
-                case '7':
-                    V.push_back(7);
-                    break;
-                case '8':
-                    V.push_back(8);
-                    break;
-                case '9':
-                    V.push_back(9);
-                    break;
-                case '0':
-                    V.push_back(0);
-                    break;
                     
                     
                 case '+':
@@ -172,6 +147,7 @@ int evaluate(std::string tmp){
                 default:
                     break;
             }
+        }
     }
         return V.back();
 }
